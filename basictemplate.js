@@ -27,7 +27,7 @@ function MergeRecursive(obj1, obj2) { //http://stackoverflow.com/a/383245
 
 //
 
-var php = require('./htmlentities.commonjs.js');
+var php = require('./php.js');
 
 function render_view(view, view_data, callback)
 {
