@@ -1,5 +1,4 @@
-#Basic Template#
-**NOT READY YET. DO NOT USE.**
+#Basic Template v0.1#
 
 A basic template engine.
 

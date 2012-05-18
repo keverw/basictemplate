@@ -1,9 +1,38 @@
 (function() {
 
+/*
+* Recursively merge properties of two objects 
+*/
+function MergeRecursive(obj1, obj2) { //http://stackoverflow.com/a/383245
+
+  for (var p in obj2) {
+    try {
+      // Property in destination object set; update its value.
+      if ( obj2[p].constructor==Object ) {
+        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+
+      } else {
+        obj1[p] = obj2[p];
+
+      }
+
+    } catch(e) {
+      // Property in destination object not set; create it and set its value.
+      obj1[p] = obj2[p];
+
+    }
+  }
+
+  return obj1;
+}
+
+//
+
 var php = require('./htmlentities.commonjs.js');
 
 function render_view(view, view_data, callback)
 {
+	console.log(view_data);
 	var fs = require('fs');
 	
 	fs.readFile(view, 'utf8', function (err,data)
@@ -30,17 +59,32 @@ function render_view(view, view_data, callback)
 }
 
 //Public
-function render(view, data, callback) //View and data
+function render(view, view_data, callback) //View and data
 {
-	render_view(view, data, function(err, html)
+	render_view(view, view_data, function(err, html)
 	{
 		callback(err, html);
 	});
 }
 
-function render_sub(view, subview, data, callback) //render the subview also.
+function render_sub(view, subview, view_data, callback) //render the subview also.
 {
-	callback(null, 'later!')
+	render_view(subview, view_data, function(err, html)
+	{
+		if (err)
+  		{
+			callback(err, null);
+		}
+		else
+		{
+			view_data2 = MergeRecursive(view_data, {subview: html});
+			
+			render_view(view, view_data2, function(err, html)
+			{
+				callback(err, html);
+			});
+		}
+	});
 }
 
 
