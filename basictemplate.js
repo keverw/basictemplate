@@ -1,5 +1,4 @@
 (function() {
-
 /*
 * Recursively merge properties of two objects 
 */
@@ -15,7 +14,7 @@ function MergeRecursive(obj1, obj2) { //http://stackoverflow.com/a/383245
         obj1[p] = obj2[p];
 
       }
-
+      
     } catch(e) {
       // Property in destination object not set; create it and set its value.
       obj1[p] = obj2[p];
@@ -32,7 +31,6 @@ var php = require('./htmlentities.commonjs.js');
 
 function render_view(view, view_data, callback)
 {
-	console.log(view_data);
 	var fs = require('fs');
 	
 	fs.readFile(view, 'utf8', function (err,data)
