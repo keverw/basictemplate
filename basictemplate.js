@@ -2,7 +2,7 @@
 
 var php = require('./htmlentities.commonjs.js');
 
-function render_view(view, data, callback)
+function render_view(view, view_data, callback)
 {
 	var fs = require('fs');
 	
@@ -14,6 +14,18 @@ function render_view(view, data, callback)
   		}
   		else
   		{
+  			for (var key in view_data)
+  			{
+				if (view_data.hasOwnProperty(key))
+				{
+					data = data.replace('{{' + key + '}}', view_data[key]);
+					data = data.replace('{' + key + '}', php.htmlentities(view_data[key]));
+					
+					console.log(key); //Key
+					console.log(view_data[key]); //Value
+				}
+			}
+  			
   			console.log(php.htmlentities(data));
   			console.log(data);
   		}

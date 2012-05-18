@@ -1,6 +1,6 @@
 var basictemplate = require('./basictemplate.js');
 
-basictemplate.render('./view.bt', {hello: 'World'}, function(err, html)
+basictemplate.render('./view.bt', {hello: '<i>W</i>orld'}, function(err, html)
 {
     console.log(err);
     console.log(html);
