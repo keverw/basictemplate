@@ -2,7 +2,7 @@
   "author": "Kevin Whitman (https://github.com/keverw)",
   "name": "basictemplate",
   "description": "A simple template engine",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/keverw/basictemplate"
