@@ -1,5 +1,7 @@
 (function() {
 
+var php = require('./htmlentities.commonjs.js');
+
 function render_view(view, data, callback)
 {
 	var fs = require('fs');
@@ -12,6 +14,7 @@ function render_view(view, data, callback)
   		}
   		else
   		{
+  			console.log(php.htmlentities(data));
   			console.log(data);
   		}
 });
