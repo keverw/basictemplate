@@ -50,7 +50,6 @@ function render_view(view, view_data, callback)
 				}
 			}
   			
-  			data = php.nl2br(data);
   			callback(null, data);
   		}
 });
@@ -62,6 +61,7 @@ function render(view, view_data, callback) //View and data
 {
 	render_view(view, view_data, function(err, html)
 	{
+		html = php.nl2br(html);
 		callback(err, html);
 	});
 }
@@ -80,6 +80,7 @@ function render_sub(view, subview, view_data, callback) //render the subview als
 			
 			render_view(view, view_data2, function(err, html)
 			{
+				html = php.nl2br(html);
 				callback(err, html);
 			});
 		}
