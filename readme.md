@@ -1,0 +1,38 @@
+#Basic Template#
+**NOT READY YET. DO NOT USE.**
+
+A basic template engine.
+
+A main view and data. Optionally a subview. uses `{variable}` styles.
+
+`render(view, data, subview)`
+
+
+view is the path the view. data is a javascript object to pass to your view(and subview if you include one). subview is the path to that view.
+
+eg: 
+
+
+```
+basictemplate.render('./view.bt', {hello: 'World'}, function(err, html)
+{
+    console.log(err);
+    console.log(html);
+});
+```
+
+If you include a subview.
+
+```
+basictemplate.render_sub('./view.bt', './subview.bt', {hello: 'World'}, function(err, html)
+{
+    console.log(err);
+    console.log(html);
+});
+```
+
+To display it within the view, use `{{subview}}`
+
+`{variable}` = escaped to HTML entities
+
+`{{variable}}` = unescaped
