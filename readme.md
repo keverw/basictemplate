@@ -4,15 +4,16 @@ A basic template engine.
 
 A main view and data. Optionally a subview. uses `{variable}` styles.
 
-`render(view, data, subview)`
+## Setup ##
+To set up diskspace.js on your Node.js server use npm.
 
+    npm install basictemplate
 
-view is the path the view. data is a javascript object to pass to your view(and subview if you include one). subview is the path to that view.
-
-eg: 
+## Basic Usage ##
 
 
 ```
+var basictemplate = require('basictemplate');
 basictemplate.render('./view.bt', {hello: 'World'}, function(err, html)
 {
     console.log(err);
@@ -23,6 +24,7 @@ basictemplate.render('./view.bt', {hello: 'World'}, function(err, html)
 If you include a subview.
 
 ```
+var basictemplate = require('basictemplate');
 basictemplate.render_sub('./view.bt', './subview.bt', {hello: 'World'}, function(err, html)
 {
     console.log(err);
