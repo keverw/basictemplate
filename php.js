@@ -2,7 +2,7 @@
  * More info at: http://phpjs.org
  * 
  * This is version: 3.26
- * php.js is copyright 2011 Kevin van Zonneveld.
+ * php.js is copyright 2012 Kevin van Zonneveld.
  * 
  * Portions copyright Brett Zamir (http://brett-zamir.me), Kevin van Zonneveld
  * (http://kevin.vanzonneveld.net), Onno Marsman, Theriault, Michael White
@@ -353,4 +353,27 @@ exports.htmlentities = function (string, quote_style, charset, double_encode) {
     return string;
 };
 
+exports.nl2br = function (str, is_xhtml) {
+    // Converts newlines to HTML line breaks  
+    // 
+    // version: 1109.2015
+    // discuss at: http://phpjs.org/functions/nl2br
+    // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+    // +   improved by: Philip Peterson
+    // +   improved by: Onno Marsman
+    // +   improved by: Atli Þór
+    // +   bugfixed by: Onno Marsman
+    // +      input by: Brett Zamir (http://brett-zamir.me)
+    // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+    // +   improved by: Brett Zamir (http://brett-zamir.me)
+    // +   improved by: Maximusya
+    // *     example 1: \php.nl2br('Kevin\nvan\nZonneveld');
+    // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
+    // *     example 2: \php.nl2br("\nOne\nTwo\n\nThree\n", false);
+    // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
+    // *     example 3: \php.nl2br("\nOne\nTwo\n\nThree\n", true);
+    // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
 
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+};
