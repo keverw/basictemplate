@@ -36,3 +36,10 @@ To display it within the view, use `{{subview}}`
 `{variable}` = escaped to HTML entities
 
 `{{variable}}` = unescaped
+
+
+##error:##
+
+error is an object. 
+
+`type`: the type of error. If it's a file system error, type will be `file`, and then another variable called `file` will contain the filesystem error object, if you want to analyze it. 
