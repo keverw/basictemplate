@@ -20,14 +20,10 @@ function render_view(view, view_data, callback)
 				{
 					data = data.replace('{{' + key + '}}', view_data[key]);
 					data = data.replace('{' + key + '}', php.htmlentities(view_data[key]));
-					
-					console.log(key); //Key
-					console.log(view_data[key]); //Value
 				}
 			}
   			
-  			console.log(php.htmlentities(data));
-  			console.log(data);
+  			callback(null, data);
   		}
 });
 	
@@ -38,10 +34,8 @@ function render(view, data, callback) //View and data
 {
 	render_view(view, data, function(err, html)
 	{
-    	console.log(err);
-    	console.log(html);
+		callback(err, html);
 	});
-	//callback(null, 'later!')
 }
 
 function render_sub(view, subview, data, callback) //render the subview also.
