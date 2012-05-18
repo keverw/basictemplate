@@ -50,6 +50,7 @@ function render_view(view, view_data, callback)
 				}
 			}
   			
+  			data = php.nl2br(data);
   			callback(null, data);
   		}
 });
