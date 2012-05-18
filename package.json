@@ -1,6 +1,6 @@
 {
   "author": "Kevin Whitman (https://github.com/keverw)",
-  "name": "mailkit",
+  "name": "basictemplate",
   "description": "A simple template engine",
   "version": "0.1.0",
   "repository": {
