@@ -80,7 +80,9 @@ function render_sub(view, subview, view_data, callback) //render the subview als
 			
 			render_view(view, view_data2, function(err, html)
 			{
+				html = php.str_replace('>\n', '>', html);
 				html = php.nl2br(html);
+				
 				callback(err, html);
 			});
 		}
