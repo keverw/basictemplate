@@ -1,4 +1,4 @@
-#Basic Template v0.1.5#
+#Basic Template v0.1.6#
 
 A basic template engine.
 
