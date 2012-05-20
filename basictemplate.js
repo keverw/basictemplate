@@ -61,7 +61,7 @@ function render(view, view_data, callback) //View and data
 {
 	render_view(view, view_data, function(err, html)
 	{
-		//html = php.str_replace('>\n', '>', html);
+		html = php.str_replace('>\n', '>', html);
 		html = php.nl2br(html);
 		callback(err, html);
 	});
