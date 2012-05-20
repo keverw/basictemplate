@@ -1,4 +1,4 @@
-var basictemplate = require('./basictemplate.js');
+var basictemplate = require('../basictemplate.js');
 
 /*basictemplate.render('./templates/basic/view.bt', {hello: '<i>W</i>orld'}, function(err, html)
 {
