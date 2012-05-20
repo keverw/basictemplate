@@ -5,7 +5,7 @@ A basic template engine.
 A main view and data. Optionally a subview. uses `{variable}` styles.
 
 ## Setup ##
-To set up diskspace.js on your Node.js server use npm.
+To set up Basic Template on your Node.js server use npm.
 
     npm install basictemplate
 
@@ -44,3 +44,9 @@ To display it within the view, use `{{subview}}`
 error is an object. 
 
 `type`: the type of error. If it's a file system error, type will be `file`, and then another variable called `file` will contain the filesystem error object, if you want to analyze it. 
+
+##Used by: ##
+
+**MailKit** - [https://github.com/keverw/mailkit](https://github.com/keverw/mailkit)
+
+If you're using Basic Template, let me know! [@keverw](https://twitter.com/keverw)
