@@ -32,7 +32,7 @@ basictemplate.render_sub('./view.bt', './subview.bt', {hello: 'World'}, function
 });
 ```
 
-To display it within the view, use `{{subview}}`
+To display a subview within the view, use `{{_SUBVIEW}}`
 
 `{variable}` = escaped to HTML entities
 

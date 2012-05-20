@@ -77,7 +77,7 @@ function render_sub(view, subview, view_data, callback) //render the subview als
 		}
 		else
 		{
-			view_data2 = MergeRecursive(view_data, {subview: html});
+			view_data2 = MergeRecursive(view_data, {_SUBVIEW: html});
 			
 			render_view(view, view_data2, function(err, html)
 			{
