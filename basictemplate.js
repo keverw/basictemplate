@@ -45,8 +45,8 @@ function render_view(view, view_data, callback)
   			{
 				if (view_data.hasOwnProperty(key))
 				{
-					data = data.replace('{{' + key + '}}', view_data[key]);
-					data = data.replace('{' + key + '}', php.htmlentities(view_data[key]));
+					data = php.str_replace('{{' + key + '}}', view_data[key], data);
+					data = php.str_replace('{' + key + '}', php.htmlentities(view_data[key]), data);
 				}
 			}
   			
