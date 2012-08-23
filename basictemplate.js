@@ -5,22 +5,22 @@
 function MergeRecursive(obj1, obj2) { //http://stackoverflow.com/a/383245
 
   for (var p in obj2) {
-    try {
-      // Property in destination object set; update its value.
-      if ( obj2[p].constructor==Object ) {
-        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+	try {
+	  // Property in destination object set; update its value.
+	  if ( obj2[p].constructor==Object ) {
+		obj1[p] = MergeRecursive(obj1[p], obj2[p]);
 
-      } else {
-        obj1[p] = obj2[p];
+	  } else {
+		obj1[p] = obj2[p];
 
-      }
-      
-    } catch(e) {
-      // Property in destination object not set; create it and set its value.
-      obj1[p] = obj2[p];
+	  }
+	  
+	} catch(e) {
+	  // Property in destination object not set; create it and set its value.
+	  obj1[p] = obj2[p];
 
-    }
-  }
+	}
+}
 
   return obj1;
 }
@@ -35,23 +35,23 @@ function render_view(view, view_data, callback)
 	
 	fs.readFile(view, 'utf8', function (err,data)
 	{
-  		if (err)
-  		{
-    		callback({type: 'file', file: err}, '')
-  		}
-  		else
-  		{
-  			for (var key in view_data)
-  			{
+		if (err)
+		{
+			callback({type: 'file', file: err}, '')
+		}
+		else
+		{
+			for (var key in view_data)
+			{
 				if (view_data.hasOwnProperty(key))
 				{
 					data = php.str_replace('{{' + key + '}}', view_data[key], data);
 					data = php.str_replace('{' + key + '}', php.htmlentities(view_data[key]), data);
 				}
 			}
-  			
-  			callback(null, data);
-  		}
+			
+			callback(null, data);
+		}
 });
 	
 }
@@ -72,7 +72,7 @@ function render_sub(view, subview, view_data, callback) //render the subview als
 	render_view(subview, view_data, function(err, html)
 	{
 		if (err)
-  		{
+		{
 			callback(err, null);
 		}
 		else

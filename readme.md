@@ -17,8 +17,8 @@ To set up Basic Template on your Node.js server use npm.
 var basictemplate = require('basictemplate');
 basictemplate.render('./view.bt', {hello: 'World'}, function(err, html)
 {
-    console.log(err);
-    console.log(html);
+	console.log(err);
+	console.log(html);
 });
 ```
 
@@ -28,8 +28,8 @@ If you include a subview.
 var basictemplate = require('basictemplate');
 basictemplate.render_sub('./view.bt', './subview.bt', {hello: 'World'}, function(err, html)
 {
-    console.log(err);
-    console.log(html);
+	console.log(err);
+	console.log(html);
 });
 ```
 
