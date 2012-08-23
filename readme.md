@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/keverw/basictemplate.png)](http://travis-ci.org/keverw/basictemplate)
 #Basic Template v0.1.8#
 
 A basic template engine.
